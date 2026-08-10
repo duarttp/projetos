@@ -112,23 +112,27 @@
     </section>
     <section id="contact">
         <h1 class="header"><span>Entre em contato</span></h1>
-        <form id="contactForm" action="#">
-            <div class="input-box">
-                <span>Nome</span>
-                <input type="text" id="name" name="name" placeholder="Digite seu nome compelto" required>
-            </div>
-            <div class="input-box">
-                <span>E-mail</span>
-                <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
-            </div>
-            <div class="input-box">
-                <span>Mensagem</span>
-                <textarea class="msg" type="text" id="message" name="message" placeholder="Digite sua mensagem"
-                    required></textarea>
-            </div>
-            <button type="submit" id="btnSend" class="btnSend">Enviar</button>
-        </form>
-        <p id="status"></p>
+        <div class="contact-card">
+            <form id="contactForm" action="#">
+                <div class="input-box">
+                    <span><i class="bx bx-user"></i> Nome</span>
+                    <input type="text" id="name" name="name" placeholder="Digite seu nome completo" required>
+                </div>
+                <div class="input-box">
+                    <span><i class="bx bx-envelope"></i> E-mail</span>
+                    <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+                </div>
+                <div class="input-box">
+                    <span><i class="bx bx-message-square-detail"></i> Mensagem</span>
+                    <textarea class="msg" id="message" name="message" placeholder="Digite sua mensagem" required></textarea>
+                </div>
+                <button type="submit" id="btnSend" class="btnSend">
+                    <span>Enviar</span>
+                    <i class="bx bx-send"></i>
+                </button>
+            </form>
+            <p id="status"></p>
+        </div>
     </section>
     <footer>
         <div class="col-left">

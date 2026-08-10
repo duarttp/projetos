@@ -14,6 +14,12 @@
     --second-background: rgb(21, 21, 21);
 }
 
+html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 body {
     min-height: 100vh;
     background-color: var(--background);
@@ -36,7 +42,6 @@ ul {
     display: flex;
     align-items: center;
     gap: 3em;
-
 }
 
 nav ul a {
@@ -47,7 +52,6 @@ nav ul a {
 
 nav ul a:hover {
     opacity: 1;
-
 }
 
 .logo {
@@ -56,7 +60,6 @@ nav ul a:hover {
     font-weight: 800;
     opacity: 0.8;
     transition: 0.2s ease-in-out;
-
 }
 
 .logo:hover {
@@ -77,32 +80,15 @@ nav ul a:hover {
     transition: 0.3s ease-in-out;
 }
 
-.btnSend {
-    padding: 0.5em 1em;
-    background-color: transparent;
-    color: white;
-    font-family: inherit;
-    font-weight: 500;
-    letter-spacing: 1px;
-    border-radius: 0.5em;
-    font-size: 1.1em;
-    border: 2px solid white;
-    cursor: pointer;
-    transition: 0.3s ease-in-out;
-}
-
-.btn:hover,
-.btnSend:hover {
+.btn:hover {
     background-color: white;
     color: var(--background);
 }
-
 
 span {
     background: linear-gradient(to right, #6cff52, #3ec5ff);
     background-clip: text;
     color: transparent;
-
 }
 
 #menu {
@@ -112,9 +98,11 @@ span {
 }
 
 section {
-    min-width: 100vh;
+    min-height: 100vh;
+    width: 100%;
+    max-width: 100%;
     padding: 5% 15%;
-
+    overflow-x: hidden;
 }
 
 #home {
@@ -294,48 +282,148 @@ section {
 
 #contact {
     background-color: var(--second-background);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-card {
+    width: 100%;
+    max-width: 650px;
+    margin: 2em auto 0;
+    padding: 2.5em;
+    background: rgba(30, 30, 30, 0.5);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1.2em;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
 }
 
 form {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2em;
-
+    gap: 1.5em;
+    width: 100%;
 }
 
 form .input-box {
     display: flex;
     flex-direction: column;
-    align-items: baseline;
-    gap: 1em;
-
+    gap: 0.6em;
+    width: 100%;
 }
 
-.info-box span {
-    font-size: 1.5em;
-
+.input-box span {
+    font-size: 1.05em;
+    font-weight: 500;
+    color: #e0e0e0;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
 }
 
-form input {
-    font-size: 1.3em;
-    padding: 1em 5em;
-    border-radius: 0.5em;
-    border: none;
+.input-box span i {
+    color: #3ec5ff;
+    font-size: 1.2em;
+}
+
+form input,
+.msg {
+    width: 100%;
+    font-size: 1em;
+    font-family: inherit;
+    padding: 0.9em 1.2em;
+    border-radius: 0.6em;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1.5px solid rgba(255, 255, 255, 0.12);
+    color: white;
     outline: none;
+    transition: all 0.3s ease-in-out;
 }
 
 .msg {
-    font-size: 1.3em;
-    padding: 1em 5em;
-    border-radius: 0.5em;
-    border: none;
-    outline: none;
+    min-height: 130px;
+    resize: vertical;
 }
 
-form input:focus {
-    background-color: rgb(229, 229, 229);
+form input::placeholder,
+.msg::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+form input:focus,
+.msg:focus {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: #3ec5ff;
+    box-shadow: 0 0 12px rgba(62, 197, 255, 0.25);
+}
+
+.btnSend {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6em;
+    padding: 0.85em 2.2em;
+    background-color: transparent;
+    color: white;
+    font-family: inherit;
+    font-size: 1.05em;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border-radius: 0.6em;
+    border: 2px solid white;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    align-self: center;
+    min-width: 160px;
+    margin-top: 0.5em;
+}
+
+.btnSend i {
+    font-size: 1.2em;
+    transition: transform 0.3s ease;
+}
+
+.btnSend:hover:not(:disabled) {
+    background-color: white;
+    color: var(--background);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+}
+
+.btnSend:hover:not(:disabled) i {
+    transform: translateX(4px);
+}
+
+.btnSend:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+#status {
+    margin-top: 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.status-success {
+    color: #4caf50;
+    background: rgba(76, 175, 80, 0.1);
+    border: 1px solid rgba(76, 175, 80, 0.3);
+    padding: 0.8em 1.2em;
+    border-radius: 0.5em;
+}
+
+.status-error {
+    color: #f44336;
+    background: rgba(244, 67, 54, 0.1);
+    border: 1px solid rgba(244, 67, 54, 0.3);
+    padding: 0.8em 1.2em;
+    border-radius: 0.5em;
 }
 
 footer {
@@ -408,9 +496,13 @@ footer {
     color: white;
 }
 
-@media(max-width:968px) {
+@media(max-width: 968px) {
+    nav {
+        padding: 1.5em 5%;
+    }
+
     section {
-        padding: 8em 15%;
+        padding: 6em 6%;
     }
 
     nav .btn {
@@ -419,105 +511,157 @@ footer {
 
     #menu {
         display: block;
+        cursor: pointer;
+        font-size: 2.2em;
+        transition: transform 0.3s ease;
     }
 
     .links {
         position: absolute;
         top: 100%;
-        right: 0;
+        left: 0;
         width: 100%;
-        padding: 1em 3em;
-        color: white;
-        display: flex;
+        padding: 1.5em 2em;
+        background-color: rgba(15, 15, 15, 0.95);
+        backdrop-filter: blur(15px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        display: none;
         flex-direction: column;
         text-align: center;
-        background-color: rgba(0, 0, 0, 0.9);
-        display: none;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
     }
 
     .links a {
-        margin: 2em 0;
+        margin: 1em 0;
         display: block;
-        font-size: 1.5em;
+        font-size: 1.3em;
         color: white;
+        transition: color 0.3s ease;
+    }
+
+    .links a:hover {
+        color: #3ec5ff;
     }
 
     .links.active {
-        display: block;
-
+        display: flex;
     }
 
-    #home h1 {
-        font-size: 4em;
+    .info-box h1, #home h1 {
+        font-size: 3em;
+        word-break: break-word;
     }
 
-    #home h3 {
-        font-size: 2em;
+    .info-box h3, #home h3 {
+        font-size: 1.6em;
     }
 
     #home img {
-        width: 24vw;
+        width: 160px;
+        height: 160px;
     }
 
     #about {
         flex-direction: column;
+        gap: 3em;
+        text-align: center;
     }
 
     #about img {
-        width: 32vw;
-
+        width: 240px;
+        max-width: 70vw;
+        border-radius: 2em;
     }
 
-    #about h1 {
+    .about-box h1, .header {
         font-size: 3em;
-
+        word-break: break-word;
     }
 
-    #about ul {
+    .about-box p {
         font-size: 1em;
     }
 
-
+    .skills {
+        gap: 2em;
+        justify-content: center;
+    }
 }
 
-@media(max-width:768px) {
-    #home h1 {
-        font-size: 2.5em;
+@media(max-width: 768px) {
+    section {
+        padding: 5em 5%;
     }
 
-    #home h3 {
-        font-size: 1.5em;
+    .info-box h1, #home h1, .about-box h1, .header {
+        font-size: 2.2em;
+        word-break: break-word;
+    }
+
+    .info-box h3, #home h3 {
+        font-size: 1.3em;
     }
 
     #home img {
-        width: 32vw;
+        width: 140px;
+        height: 140px;
     }
 
-    #about .skills {
-        gap: 3em;
-
+    .skills {
+        flex-direction: column;
+        gap: 1.5em;
+        align-items: center;
     }
 
-    #service .header {
-        font-size: 3em;
+    .skills ul {
+        align-items: center;
+    }
+
+    .projetos-contain {
+        grid-template-columns: 1fr;
+    }
+
+    .box {
+        padding: 1.8em 1.2em;
+    }
+
+    #contact {
+        padding: 4em 4%;
     }
 
     #contact .header {
-        font-size: 3em;
+        font-size: 2.2em;
     }
 
-    #contact .input-box {
-        font-size: 1.2em;
+    .contact-card {
+        padding: 1.5em 1.2em;
+        margin-top: 1.5em;
     }
 
-    .input-box input {
-        padding: 0.5em 1em;
+    .btnSend {
+        width: 100%;
+        padding: 0.9em;
     }
 
     footer {
         flex-direction: column;
-        gap: 5em;
-        align-items: baseline;
+        gap: 3em;
+        align-items: center;
+        text-align: center;
+        padding: 3em 5%;
     }
 
+    .col-right .social-icons {
+        justify-content: center;
+    }
+}
+
+@media(max-width: 480px) {
+    .info-box h1, #home h1, .about-box h1, .header {
+        font-size: 1.8em;
+    }
+
+    .info-box h3, #home h3 {
+        font-size: 1.1em;
+    }
 }
