@@ -1,6 +1,6 @@
-const form = document.getElementById("contactForm")
-const status = document.getElementById("status")
-const button = document.getElementById("btnSend")
+const form = document.getElementById(contactForm)
+const status = document.getElementById(status)
+const button = document.getElementById(btnSend)
 
 form.addEventListener("submit", async (event) => {
     event.preventDefault();
